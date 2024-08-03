@@ -9,7 +9,7 @@ const DATABASE_URL =
   process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL
 module.exports = {
   VERSION: require('./package.json').version,
-  SESSION_ID: (process.env.SESSION_ID || '31_7_b9f9_2e69_be6a').trim(),
+  SESSION_ID: (process.env.SESSION_ID || '').trim(),
   DATABASE:
     DATABASE_URL === databasePath
       ? new Sequelize({
@@ -27,14 +27,14 @@ module.exports = {
           },
           logging: false,
         }),
-  HANDLERS: (process.env.PREFIX || '^[,!]').trim(),
-  SUDO: process.env.SUDO || '9160273863',
+  HANDLERS: (process.env.PREFIX || '^[.,!]').trim(),
+  SUDO: process.env.SUDO || '916260273863',
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
   HEROKU_API_KEY: process.env.HEROKU_API_KEY,
   BRANCH: 'master',
   STICKER_PACKNAME: process.env.STICKER_PACKNAME || '❤️,MR-SHUBHAM',
   ALWAYS_ONLINE: toBool(process.env.ALWAYS_ONLINE),
-  LOG_MSG: toBool(process.env.LOG_MSG) || false,
+  LOG_MSG: toBool(process.env.LOG_MSG) || true,
   RMBG_KEY: process.env.RMBG_KEY || 'null',
   BAILEYS_LOG_LVL: process.env.BAILEYS_LOG_LVL || 'silent',
   LANG: (process.env.LANGUAG || 'en').toLowerCase(),
